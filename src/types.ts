@@ -30,6 +30,7 @@ export interface ItineraryItem {
   reservationCode?: string;
   suggestedLeaveTime?: string;
   aiInsights?: AIInsight;
+  closingTime?: string;
 }
 
 export interface DayItinerary {
