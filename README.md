@@ -1,0 +1,1 @@
+# fukuoka-trip-2025
