@@ -1,5 +1,6 @@
 
 
+
 import { DayItinerary, EventType, HotelInfo, FlightInfo } from './types';
 
 export const HOTEL_DATA: HotelInfo = {
@@ -153,7 +154,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
     items: [
       { 
         id: "d3-1", time: "10:00", title: "前往門司港", type: EventType.TRANSPORT, 
-        transportInfo: "JR 鹿兒島本線 (快速)\n• 上車: 博多站 | 參考改札口資訊\n• 方向: 往門司港 (Mojiko)\n• 下車: 門司港站 (終點站)",
+        transportInfo: "JR 鹿兒島本線 (快速/區間快速)\n• 上車: 博多站 | 參考改札口資訊\n• 方向: 往門司港 (Mojiko)\n• 下車: 門司港站 (終點站)\n• 備註: 適用 JR Pass (門司港-熊本區間皆免費)",
         description: "建議搭乘快速列車，車程約90分鐘，不用轉車。" 
       },
       { 
@@ -185,13 +186,13 @@ export const ITINERARY_DATA: DayItinerary[] = [
         aiInsights: {
             story: "小倉城是宮本武藏與佐佐木小次郎決鬥傳說之地，天守閣內互動設施豐富。",
             mustEat: ["揚子江肉包 (魚町銀天街)", "小倉鐵鍋餃子"],
-            tips: ["小倉城旁邊的八坂神社也很靈驗", "魚町銀天街有許多夾娃娃機店，難度據說比博多低"]
+            tips: ["平日人潮較少，現場購票即可", "小倉城旁邊的八坂神社也很靈驗", "魚町銀天街有許多夾娃娃機店"]
         }
       },
       { 
         id: "d3-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
-        transportInfo: "特急 Sonic / 新幹線\n• 上車: 小倉站\n• 推薦: 特急 Sonic (自由席需排隊)\n• 下車: 博多站",
-        description: "特急 Sonic 車身藍色非常帥氣，車程約 45 分鐘。"
+        transportInfo: "特急 Sonic (JR Pass OK)\n• 上車: 小倉站\n• 推薦: 特急 Sonic (持 Pass 可免費劃位)\n• 下車: 博多站\n• 警告: 持 Pass 不可搭此段新幹線",
+        description: "特急 Sonic 車身藍色非常帥氣，車程約 45 分鐘。注意：此路段新幹線屬 JR 西日本，JR 北九州 Pass 不適用。"
       },
       { id: "d3-7", time: "19:00", title: "晚餐：博多拉麵街", type: EventType.FOOD, location: "Hakata Station", description: "Shin-Shin 或 一幸舍 (自由覓食)" },
       { 
@@ -225,7 +226,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
     items: [
       { 
         id: "d4-1", time: "10:00", title: "前往熊本", type: EventType.TRANSPORT, 
-        transportInfo: "九州新幹線 (Sakura/Tsubame)\n• 上車: 博多站 新幹線月台\n• 方向: 往鹿兒島中央\n• 下車: 熊本站 (Kumamoto)",
+        transportInfo: "九州新幹線 (Sakura/Tsubame)\n• 上車: 博多站 新幹線月台\n• 方向: 往鹿兒島中央\n• 下車: 熊本站 (Kumamoto)\n• 備註: 適用 JR Pass (包含瑞穗號)",
         description: "最快僅需 32 分鐘即可抵達。"
       },
       { 
@@ -275,12 +276,12 @@ export const ITINERARY_DATA: DayItinerary[] = [
         aiInsights: {
             story: "日本三大名城之一，黑色外觀被稱為「武者返」，目前仍在震災修復中，但設有特殊參觀天空步道。",
             mustEat: ["城彩苑的海膽可樂餅", "いきなり団子 (紅豆番薯糰子)"],
-            tips: ["特別公開通道可以近距離看到石垣崩落的震撼景象", "天守閣內部已現代化，有冷氣和電梯"]
+            tips: ["強烈建議事先上網購票，可掃 QR Code 直接入場", "特別公開通道可以近距離看到石垣崩落的震撼景象", "天守閣內部已現代化，有冷氣和電梯"]
         }
       },
       { 
         id: "d4-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
-        transportInfo: "九州新幹線\n• 上車: 熊本站\n• 下車: 博多站",
+        transportInfo: "九州新幹線 (適用 JR Pass)\n• 上車: 熊本站\n• 下車: 博多站",
         description: "可以買個熊本熊便當在新幹線上吃。"
       },
       { 
@@ -331,7 +332,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         description: "沉浸式光影藝術，捕捉與森林的互動 (建議預先購票)", suggestedLeaveTime: "15:00",
         aiInsights: {
             story: "由兩大主題組成：「捕捉收集的森林」與「運動森林」，是結合藝術與體能的互動空間。",
-            tips: ["務必穿著好走的平底鞋，禁止穿高跟鞋入場", "建議下載官方APP，可以在「捕捉森林」中用手機抓取動物"]
+            tips: ["採預約制，務必提前上網購票以免向隅", "務必穿著好走的平底鞋，禁止穿高跟鞋入場", "建議下載官方APP，可以在「捕捉森林」中用手機抓取動物"]
         }
       },
       { 
