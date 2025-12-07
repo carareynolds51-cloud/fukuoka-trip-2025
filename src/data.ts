@@ -1,4 +1,5 @@
 
+
 import { DayItinerary, EventType, HotelInfo, FlightInfo } from './types';
 
 export const HOTEL_DATA: HotelInfo = {
@@ -17,7 +18,7 @@ export const FLIGHT_DATA: FlightInfo[] = [
 export const ITINERARY_DATA: DayItinerary[] = [
   {
     id: "day1",
-    date: "12/09",
+    date: "12月09日",
     dayOfWeek: "週二",
     title: "抵達 & 聖誕市集",
     hotelLeaveTime: "15:45", 
@@ -57,11 +58,21 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { id: "d1-6", time: "20:00", title: "Namco 博多巴士總站店", type: EventType.ACTIVITY, location: "Hakata Bus Terminal", description: "夾娃娃或回酒店休息" },
+      { 
+        id: "d1-7", time: "21:15", title: "星乃珈琲店 KITTE博多店", type: EventType.FOOD, location: "KITTE Hakata B1", 
+        description: "營業至22:30，以厚舒芙蕾鬆餅聞名的復古咖啡店。", 
+        closingTime: "22:30",
+        aiInsights: {
+          story: "發源於日本的復古喫茶店，以厚度驚人的舒芙蕾鬆餅(Pancake)聞名，口感蓬鬆濕潤。",
+          mustEat: ["窯烤舒芙蕾熱蛋糕", "昭和布丁"],
+          tips: ["位於 KITTE 地下一樓", "鬆餅現烤需等待20分鐘"]
+        }
+      },
     ]
   },
   {
     id: "day2",
-    date: "12/10",
+    date: "12月10日",
     dayOfWeek: "週三",
     title: "運河城 & 天神",
     hotelLeaveTime: "09:40",
@@ -121,11 +132,21 @@ export const ITINERARY_DATA: DayItinerary[] = [
             tips: ["吃到飽有點餐時間限制，建議先點高單價肉品", "靠窗位置可欣賞中洲夜景"]
         }
       },
+      { 
+        id: "d2-7", time: "21:30", title: "ViTO (中洲川端店)", type: EventType.FOOD, location: "Nakasu", 
+        description: "口感綿密清爽的義式冰淇淋 (Gelato)。", 
+        closingTime: "02:00",
+        aiInsights: {
+          story: "強調素材原味的福岡義式冰淇淋名店，陳列如珠寶盒般華麗。",
+          mustEat: ["開心果 (Pistachio)", "阿蘇澤西牛乳"],
+          tips: ["燒肉後最適合的解膩甜點", "營業至深夜，是當地人最愛的續攤點"]
+        }
+      },
     ]
   },
   {
     id: "day3",
-    date: "12/11",
+    date: "12月11日",
     dayOfWeek: "週四",
     title: "門司港 & 小倉",
     hotelLeaveTime: "09:30",
@@ -173,11 +194,31 @@ export const ITINERARY_DATA: DayItinerary[] = [
         description: "特急 Sonic 車身藍色非常帥氣，車程約 45 分鐘。"
       },
       { id: "d3-7", time: "19:00", title: "晚餐：博多拉麵街", type: EventType.FOOD, location: "Hakata Station", description: "Shin-Shin 或 一幸舍 (自由覓食)" },
+      { 
+        id: "d3-8", time: "20:30", title: "Il Forno del Mignon (需排隊)", type: EventType.FOOD, location: "Hakata Station", 
+        description: "博多站內傳奇的可頌店，香氣逼人。", 
+        closingTime: "23:00",
+        aiInsights: {
+          story: "幾乎所有福岡人都吃過的迷你可頌，排隊人潮是博多站的日常風景。",
+          mustEat: ["巧克力口味", "地瓜口味"],
+          tips: ["通常需排隊 15-20 分鐘，但隊伍前進很快", "按公克計價，推薦購買綜合口味", "當地人評價：冷掉也好吃"]
+        }
+      },
+      { 
+        id: "d3-9", time: "21:00", title: "Komeda's Coffee 博多巴士總站店", type: EventType.FOOD, location: "Hakata Bus Terminal", 
+        description: "營業至23:00，名古屋發源的舒適喫茶店。", 
+        closingTime: "23:00",
+        aiInsights: {
+          story: "著名的名古屋連鎖喫茶店，以寬敞的紅絲絨沙發聞名，招牌甜點「冰與火」是完美的宵夜選擇。",
+          mustEat: ["冰與火 (Shiro-Noir)", "味噌豬排三明治"],
+          tips: ["位於巴士總站內，位置便利", "甜點份量很大，建議分食", "紅絲絨沙發非常舒適"]
+        }
+      },
     ]
   },
   {
     id: "day4",
-    date: "12/12",
+    date: "12月12日",
     dayOfWeek: "週五",
     title: "熊本 (文化與魯夫)",
     hotelLeaveTime: "09:30",
@@ -242,11 +283,31 @@ export const ITINERARY_DATA: DayItinerary[] = [
         transportInfo: "九州新幹線\n• 上車: 熊本站\n• 下車: 博多站",
         description: "可以買個熊本熊便當在新幹線上吃。"
       },
+      { 
+        id: "d4-7", time: "19:00", title: "Shiroya (シロヤ) 博多站店", type: EventType.FOOD, location: "Hakata Station Ming", 
+        description: "北九州小倉的靈魂麵包店 (位於 Ming 商店街)。", 
+        closingTime: "21:00",
+        aiInsights: {
+          story: "來自北九州的昭和復古麵包店，以驚人的銅板價提供懷舊美味。",
+          mustEat: ["薩尼麵包 (Sunny Pan / 煉乳麵包)", "歐姆雷 (Omelet / 鮮奶油蛋糕)"],
+          tips: ["歐姆雷人氣極高，傍晚經常售罄 (要有心理準備)", "Sunny Pan 煉乳內餡會爆漿，請小心食用"]
+        }
+      },
+      { 
+        id: "d4-8", time: "19:45", title: "Campbell Early (坎貝爾早安)", type: EventType.FOOD, location: "JR Hakata City 9F", 
+        description: "華麗的季節水果芭菲(Sundae)專門店。", 
+        closingTime: "22:00",
+        aiInsights: {
+          story: "博多站著名的水果芭菲專門店，使用九州當地新鮮水果，外觀華麗。",
+          mustEat: ["博多Amaou草莓芭菲", "綜合水果鬆餅"],
+          tips: ["位於博多站上方9樓，交通方便", "晚上適合來吃豪華甜點"]
+        }
+      },
     ]
   },
   {
     id: "day5",
-    date: "12/13",
+    date: "12月13日",
     dayOfWeek: "週六",
     title: "鰻魚、teamLab & 潮牌",
     hotelLeaveTime: "11:00",
@@ -296,16 +357,36 @@ export const ITINERARY_DATA: DayItinerary[] = [
             tips: ["第一口先喝加了少許鹽的雞湯原味", "最後的雜炊粥是精華，絕對不能錯過"]
         }
       },
-      { id: "d5-6", time: "21:00", title: "打包行李", type: EventType.ACTIVITY, location: "Hotel", description: "準備回程" },
+      { 
+        id: "d5-7", time: "21:30", title: "MaxValu / Sunny 超市巡禮", type: EventType.SHOPPING, location: "Hakata / Gion", 
+        description: "體驗當地生活的24小時超市，最後補貨。", 
+        closingTime: "24H",
+        aiInsights: {
+          story: "比便利商店更接地氣的選擇，是當地主婦與內行遊客的寶庫。",
+          mustBuy: ["日清咚兵衛 (九州限定版)", "博多 Amaou 草莓", "各式調味料"],
+          tips: ["晚上熟食區可能有特價貼紙", "請自備購物袋"]
+        }
+      },
+      { id: "d5-8", time: "22:30", title: "打包行李", type: EventType.ACTIVITY, location: "Hotel", description: "準備回程，整理戰利品。" },
     ]
   },
   {
     id: "day6",
-    date: "12/14",
+    date: "12月14日",
     dayOfWeek: "週日",
     title: "離開博多",
-    hotelLeaveTime: "11:00",
+    hotelLeaveTime: "10:00",
     items: [
+      { 
+        id: "d6-0", time: "10:15", title: "FUK COFFEE", type: EventType.FOOD, location: "Gion / Hakata", 
+        description: "離開前的儀式感：旅行主題咖啡廳。", 
+        closingTime: "20:00",
+        aiInsights: {
+          story: "以機場代碼 FUK 為名的潮流咖啡廳，店內充滿飛機與旅行元素，布丁與拿鐵非常受歡迎。",
+          mustEat: ["手工硬布丁", "香草冰淇淋拿鐵", "飛機餅乾"],
+          tips: ["距離博多站步行約7-10分鐘", "店門口的行李箱貼紙牆是必拍景點"]
+        }
+      },
       { 
         id: "d6-1", time: "11:30", title: "博多站最後採買", type: EventType.SHOPPING, location: "Ming Station Mall", 
         description: "Ming 商店街買伴手禮", suggestedLeaveTime: "12:15",
@@ -317,7 +398,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       },
       { 
         id: "d6-2", time: "12:30", title: "前往機場", type: EventType.TRANSPORT, 
-        transportInfo: "地鐵/巴士\n• 推薦: 博多巴士總站 11號月台 直達巴士\n• 下車: 福岡機場國際線航廈",
+        transportInfo: "地鐵/巴士\n• 推薦: 博多巴士總站 11號月台 直達巴士\n• 下車: 福岡機場國際線航廈", 
         description: "直達巴士可免去地鐵轉乘接駁車的麻煩。"
       },
       { id: "d6-3", time: "14:55", title: "航班 HX641 起飛", type: EventType.FLIGHT, description: "返回溫暖的家" },
