@@ -1,6 +1,8 @@
 
 
 
+
+
 import { DayItinerary, EventType, HotelInfo, FlightInfo } from './types';
 
 export const HOTEL_DATA: HotelInfo = {
@@ -22,18 +24,18 @@ export const ITINERARY_DATA: DayItinerary[] = [
     date: "12月09日",
     dayOfWeek: "週二",
     title: "抵達 & 聖誕市集",
-    hotelLeaveTime: "15:45", 
+    hotelLeaveTime: "16:20", 
     items: [
       { id: "d1-1", time: "13:55", title: "抵達福岡機場 (FUK)", type: EventType.FLIGHT, description: "航班 HX640 抵達" },
       { 
-        id: "d1-t1", time: "14:30", title: "前往博多市區", type: EventType.TRANSPORT, 
+        id: "d1-t1", time: "15:15", title: "前往博多市區", type: EventType.TRANSPORT, 
         transportInfo: "西鐵巴士 (直達)\n• 乘車處: 國際航廈 1F 巴士站\n• 路線: 往博多站 (Hakata Station)\n• 下車: 博多巴士總站 (Hakata Bus Terminal)",
-        description: "出關後直接前往巴士站，班次密集。"
+        description: "預留約70-80分鐘入境與領取行李時間。出關後前往巴士站。"
       },
-      { id: "d1-2", time: "15:00", title: "Check-in 酒店", type: EventType.HOTEL, location: "Hakata Tokyu REI Hotel", description: "辦理入住，放置行李", suggestedLeaveTime: "15:45" },
+      { id: "d1-2", time: "16:00", title: "Check-in 酒店", type: EventType.HOTEL, location: "Hakata Tokyu REI Hotel", description: "辦理入住，放置行李 (博多口側)", suggestedLeaveTime: "16:20" },
       { 
-        id: "d1-3", time: "16:00", title: "Yodobashi Camera", type: EventType.SHOPPING, location: "Yodobashi Hakata", 
-        description: "3F 遊戲區 / 4F Lopia 超市輕度採買", suggestedLeaveTime: "17:15",
+        id: "d1-3", time: "16:30", title: "Yodobashi Camera", type: EventType.SHOPPING, location: "Yodobashi Hakata", 
+        description: "前往筑紫口側。3F 遊戲區 / 4F Lopia 超市輕度採買", suggestedLeaveTime: "18:00",
         aiInsights: {
           story: "Yodobashi 博多店是當地最大的電器百貨之一，4樓新開的 Lopia 超市以「肉的超市」聞名，價格極具競爭力。",
           mustBuy: ["Lopia 自家製香腸", "日本草莓 (季節限定)", "Switch 遊戲周邊"],
@@ -41,26 +43,26 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d1-4", time: "17:30", title: "博多站前聖誕市集", type: EventType.ACTIVITY, location: "JR Hakata Station Plaza", 
-        description: "喝杯熱紅酒，欣賞著名的藍色燈海。", suggestedLeaveTime: "18:05",
-        aiInsights: {
-          story: "福岡的聖誕市集規模在全日本數一數二，博多站前的「光之街」點燈活動使用了約80萬顆藍色LED燈。",
-          mustEat: ["熱紅酒 (附紀念馬克杯)", "德式香腸", "吉拿棒"],
-          tips: ["每年的熱紅酒馬克杯設計不同，值得收藏", "人潮眾多，拍照建議往二樓露台移動"]
-        }
-      },
-      { 
         id: "d1-5", time: "18:15", title: "鳥貴族 博多筑紫口店", type: EventType.FOOD, location: "博多筑紫口", 
-        description: "晚餐 (已訂)", reservationCode: "需確認預約信", suggestedLeaveTime: "19:45",
+        description: "晚餐 (已訂) - 就在 Yodobashi 附近", reservationCode: "需確認預約信", suggestedLeaveTime: "19:45",
         aiInsights: {
           story: "均一價的連鎖燒鳥居酒屋，深受年輕人和上班族喜愛，性價比極高。",
           mustEat: ["貴族燒 (雞腿肉/雞胸肉)", "起司肉丸", "釜飯 (需等30分鐘)"],
           tips: ["釜飯建議一入座就先點，因為製作時間長", "使用平板點餐，有中文介面"]
         }
       },
-      { id: "d1-6", time: "20:00", title: "Namco 博多巴士總站店", type: EventType.ACTIVITY, location: "Hakata Bus Terminal", description: "夾娃娃或回酒店休息" },
       { 
-        id: "d1-7", time: "21:15", title: "星乃珈琲店 KITTE博多店", type: EventType.FOOD, location: "KITTE Hakata B1", 
+        id: "d1-4", time: "20:00", title: "博多站前聖誕市集", type: EventType.ACTIVITY, location: "JR Hakata Station Plaza", 
+        description: "吃飽後走回博多口消化一下。欣賞著名的藍色燈海。", suggestedLeaveTime: "20:45",
+        aiInsights: {
+          story: "福岡的聖誕市集規模在全日本數一數二，博多站前的「光之街」點燈活動使用了約80萬顆藍色LED燈。",
+          mustEat: ["熱紅酒 (附紀念馬克杯)", "德式香腸", "吉拿棒"],
+          tips: ["每年的熱紅酒馬克杯設計不同，值得收藏", "人潮眾多，拍照建議往二樓露台移動"]
+        }
+      },
+      { id: "d1-6", time: "21:00", title: "Namco 博多巴士總站店", type: EventType.ACTIVITY, location: "Hakata Bus Terminal", description: "夾娃娃或回酒店休息" },
+      { 
+        id: "d1-7", time: "21:45", title: "星乃珈琲店 KITTE博多店", type: EventType.FOOD, location: "KITTE Hakata B1", 
         description: "營業至22:30，以厚舒芙蕾鬆餅聞名的復古咖啡店。", 
         closingTime: "22:30",
         aiInsights: {
