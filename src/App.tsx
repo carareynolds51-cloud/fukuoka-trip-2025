@@ -4,7 +4,7 @@ import {
   MapPin, Utensils, ShoppingBag, Train, BedDouble, 
   Plane, Wallet, Info, ChevronRight, Sparkles, 
   Calendar, Phone, ExternalLink,
-  LogOut, Clock, BookOpen, Lightbulb, Trash2
+  LogOut, Clock, BookOpen, Lightbulb, Trash2, Ticket
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ITINERARY_DATA, HOTEL_DATA, FLIGHT_DATA } from './data';
@@ -342,6 +342,62 @@ const ToolsView = ({
                     <a href={`tel:${HOTEL_DATA.phone}`} className="mt-3 flex items-center justify-center gap-2 w-full py-2 bg-indigo-50 text-indigo-700 rounded-lg text-sm font-bold active:scale-95 transition-transform">
                         <Phone size={14} /> 致電酒店
                     </a>
+                </div>
+            </div>
+
+            {/* Rail Pass Recommendation Card */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-sm border border-indigo-100 p-5">
+                <h3 className="text-lg font-bold text-indigo-900 flex items-center gap-2 mb-3">
+                    <Ticket className="text-indigo-600" size={20} /> JR Pass 攻略
+                </h3>
+                <div className="bg-white/60 rounded-lg p-3 mb-3 border border-indigo-100">
+                    <div className="flex justify-between items-center text-sm mb-1">
+                        <span className="text-stone-600">單買車票預估</span>
+                        <span className="text-stone-500 line-through">~¥14,000</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm mb-2">
+                        <span className="font-bold text-indigo-800">JR 北九州周遊券 (3日)</span>
+                        <span className="font-bold text-indigo-600">¥12,000</span>
+                    </div>
+                    <div className="text-xs text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded inline-block border border-emerald-100">
+                        省下約 ¥2,000 + 免費劃位指定席
+                    </div>
+                </div>
+                
+                <div className="space-y-2">
+                    <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-wider">重要注意事項</h4>
+                    <div className="flex gap-3 text-xs">
+                        <div className="flex-1 bg-white p-2 rounded border border-red-100">
+                            <span className="block font-bold text-red-600 mb-1">Pass 適用範圍</span>
+                            <p className="text-stone-600 leading-tight mb-1">
+                                <span className="font-bold text-stone-800">• 門司港 ～ 熊本</span><br/>
+                                <span className="text-[10px]">(包含鹿兒島本線)</span>
+                            </p>
+                            <p className="text-stone-600 leading-tight mb-1">
+                                <span className="font-bold text-stone-800">• 快速/區間快速</span><br/>
+                                <span className="text-[10px]">(皆可免費搭乘)</span>
+                            </p>
+                            <p className="text-red-500 font-bold leading-tight border-t border-red-100 pt-1 mt-1">
+                                熊本以南 (如八代)<br/>需補票，不可用
+                            </p>
+                        </div>
+                        <div className="flex-1 bg-white p-2 rounded border border-emerald-100">
+                             <span className="block font-bold text-emerald-600 mb-1">Day 4 熊本新幹線</span>
+                             <p className="text-stone-600 leading-tight">
+                                <span className="font-bold">可以搭</span> 九州新幹線<br/>
+                                (瑞穗/櫻花/燕子號皆可)
+                             </p>
+                             <div className="mt-2 pt-1 border-t border-emerald-100">
+                                 <span className="block font-bold text-red-500 mb-0.5">Day 3 小倉新幹線</span>
+                                 <p className="text-stone-600 leading-tight text-[10px]">
+                                    博多-小倉的新幹線屬JR西日本，<span className="font-bold text-red-500">不可搭乘</span>。請改搭特急 Sonic。
+                                 </p>
+                             </div>
+                        </div>
+                    </div>
+                    <div className="mt-2 text-[10px] text-stone-500 bg-white/40 p-2 rounded">
+                        *建議事先在 Klook/KKday 購買電子兌換券，抵達博多站時憑護照兌換並劃位。
+                    </div>
                 </div>
             </div>
 
