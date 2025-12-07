@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   MapPin, Utensils, ShoppingBag, Train, BedDouble, 
   Plane, Wallet, Info, ChevronRight, Sparkles, 
   Calendar, Phone, ExternalLink,
-  LogOut, Clock, BookOpen, Lightbulb
+  LogOut, Clock, BookOpen, Lightbulb, Trash2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ITINERARY_DATA, HOTEL_DATA, FLIGHT_DATA } from './data';
@@ -248,14 +248,42 @@ const DayView = ({ day }: { day: DayItinerary }) => {
 };
 
 const ToolsView = () => {
-    // Budget State
-    const [budgetItems, setBudgetItems] = useState<{item: string, price: number}[]>([]);
+    // Budget State - Load from LocalStorage
+    const [budgetItems, setBudgetItems] = useState<{item: string, price: number}[]>(() => {
+        try {
+            const saved = localStorage.getItem('trip_budget_items');
+            return saved ? JSON.parse(saved) : [];
+        } catch (e) {
+            console.error('Failed to load budget', e);
+            return [];
+        }
+    });
+    
     const [newItem, setNewItem] = useState("");
     const [newPrice, setNewPrice] = useState("");
     
-    // Independent Transport Reserve State
-    const [transportTotal, setTransportTotal] = useState(0);
+    // Independent Transport Reserve State - Load from LocalStorage
+    const [transportTotal, setTransportTotal] = useState<number>(() => {
+        try {
+            const saved = localStorage.getItem('trip_transport_total');
+            return saved ? parseInt(saved, 10) : 0;
+        } catch (e) {
+             console.error('Failed to load transport total', e);
+            return 0;
+        }
+    });
+    
     const [transportInput, setTransportInput] = useState("");
+
+    // Persist Budget Items
+    useEffect(() => {
+        localStorage.setItem('trip_budget_items', JSON.stringify(budgetItems));
+    }, [budgetItems]);
+
+    // Persist Transport Total
+    useEffect(() => {
+        localStorage.setItem('trip_transport_total', transportTotal.toString());
+    }, [transportTotal]);
 
     const addBudget = () => {
         if(newItem && newPrice) {
@@ -265,11 +293,23 @@ const ToolsView = () => {
         }
     }
 
+    const removeBudget = (index: number) => {
+        const newItems = [...budgetItems];
+        newItems.splice(index, 1);
+        setBudgetItems(newItems);
+    }
+
     const addTransport = () => {
         const val = parseInt(transportInput);
         if (!isNaN(val)) {
             setTransportTotal(prev => prev + val);
             setTransportInput("");
+        }
+    }
+
+    const resetTransport = () => {
+        if (window.confirm('確定要歸零交通儲備嗎？')) {
+            setTransportTotal(0);
         }
     }
 
@@ -342,11 +382,14 @@ const ToolsView = () => {
                 </div>
             </div>
 
-            {/* Transport Reserve Card (New Independent Item) */}
+            {/* Transport Reserve Card */}
             <div className="bg-white rounded-xl shadow-sm border border-stone-100 p-5">
-                <h3 className="text-lg font-bold text-stone-800 flex items-center gap-2 mb-3">
-                    <Train className="text-blue-600" size={20} /> 交通儲備
-                </h3>
+                <div className="flex justify-between items-center mb-3">
+                    <h3 className="text-lg font-bold text-stone-800 flex items-center gap-2">
+                        <Train className="text-blue-600" size={20} /> 交通儲備
+                    </h3>
+                    <button onClick={resetTransport} className="text-xs text-stone-400 hover:text-red-500 underline">重置</button>
+                </div>
                 <div className="flex justify-between items-baseline mb-4">
                     <span className="text-sm text-stone-500">目前累積 (IC卡/車票)</span>
                     <span className="text-2xl font-bold text-stone-800 font-mono">¥{transportTotal.toLocaleString()}</span>
@@ -368,7 +411,7 @@ const ToolsView = () => {
                 </div>
             </div>
 
-            {/* Simple Budget Tool (General) */}
+            {/* Simple Budget Tool */}
             <div className="bg-white rounded-xl shadow-sm border border-stone-100 p-5">
                 <h3 className="text-lg font-bold text-stone-800 flex items-center gap-2 mb-3">
                     <Wallet className="text-emerald-600" size={20} /> 簡易記帳
@@ -376,9 +419,17 @@ const ToolsView = () => {
                 {budgetItems.length > 0 ? (
                     <div className="bg-stone-50 rounded-lg p-3 max-h-40 overflow-y-auto mb-3 space-y-2">
                         {budgetItems.map((b, idx) => (
-                            <div key={idx} className="flex justify-between text-sm text-stone-600 border-b border-stone-200 pb-1 last:border-0">
+                            <div key={idx} className="flex justify-between text-sm text-stone-600 border-b border-stone-200 pb-1 last:border-0 group">
                                 <span>{b.item}</span>
-                                <span className="font-mono">¥{b.price.toLocaleString()}</span>
+                                <div className="flex items-center gap-3">
+                                    <span className="font-mono">¥{b.price.toLocaleString()}</span>
+                                    <button 
+                                        onClick={() => removeBudget(idx)}
+                                        className="text-stone-300 hover:text-red-500 transition-colors"
+                                    >
+                                        <Trash2 size={12} />
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>
