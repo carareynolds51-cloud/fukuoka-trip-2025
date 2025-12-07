@@ -353,14 +353,14 @@ const ToolsView = ({
                 <div className="bg-white/60 rounded-lg p-3 mb-3 border border-indigo-100">
                     <div className="flex justify-between items-center text-sm mb-1">
                         <span className="text-stone-600">單買車票預估</span>
-                        <span className="text-stone-500 line-through">~¥14,000</span>
+                        <span className="text-stone-500 line-through">~¥15,000</span>
                     </div>
                     <div className="flex justify-between items-center text-sm mb-2">
                         <span className="font-bold text-indigo-800">JR 北九州周遊券 (3日)</span>
-                        <span className="font-bold text-indigo-600">¥12,000</span>
+                        <span className="font-bold text-indigo-600">¥14,000</span>
                     </div>
                     <div className="text-xs text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded inline-block border border-emerald-100">
-                        省下約 ¥2,000 + 免費劃位指定席
+                        省下約 ¥1,000 + 免費劃位指定席
                     </div>
                 </div>
                 
