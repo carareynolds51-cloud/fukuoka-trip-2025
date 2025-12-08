@@ -382,13 +382,13 @@ const ToolsView = ({
                             </p>
                         </div>
                         <div className="flex-1 bg-white p-2 rounded border border-emerald-100">
-                             <span className="block font-bold text-emerald-600 mb-1">Day 4 熊本新幹線</span>
+                             <span className="block font-bold text-emerald-600 mb-1">Day 3 熊本新幹線</span>
                              <p className="text-stone-600 leading-tight">
                                 <span className="font-bold">可以搭</span> 九州新幹線<br/>
                                 (瑞穗/櫻花/燕子號皆可)
                              </p>
                              <div className="mt-2 pt-1 border-t border-emerald-100">
-                                 <span className="block font-bold text-red-500 mb-0.5">Day 3 小倉新幹線</span>
+                                 <span className="block font-bold text-red-500 mb-0.5">Day 4 小倉新幹線</span>
                                  <p className="text-stone-600 leading-tight text-[10px]">
                                     博多-小倉的新幹線屬JR西日本，<span className="font-bold text-red-500">不可搭乘</span>。請改搭特急 Sonic。
                                  </p>
