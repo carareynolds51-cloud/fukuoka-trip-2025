@@ -165,8 +165,8 @@ export const ITINERARY_DATA: DayItinerary[] = [
     items: [
       { 
         id: "d3-1", time: "10:00", title: "前往熊本", type: EventType.TRANSPORT, 
-        transportInfo: "九州新幹線 (Sakura/Tsubame)\n• 上車: 博多站 新幹線月台\n• 方向: 往鹿兒島中央\n• 下車: 熊本站 (Kumamoto)\n• 備註: 適用 JR Pass (包含瑞穗號)",
-        description: "最快僅需 32 分鐘即可抵達。"
+        transportInfo: "九州新幹線 (Sakura/Tsubame)\n• 上車: 博多站 新幹線月台\n• 方向: 往鹿兒島中央\n• 下車: 熊本站 (Kumamoto)\n• 票價: 自由席約 ¥5,230 (單程)",
+        description: "不買Pass建議直接購買新幹線單程票，速度最快 (約40分)。"
       },
       { 
         id: "d3-t2", time: "10:45", title: "前往水前寺", type: EventType.TRANSPORT, 
@@ -220,8 +220,8 @@ export const ITINERARY_DATA: DayItinerary[] = [
       },
       { 
         id: "d3-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
-        transportInfo: "九州新幹線 (適用 JR Pass)\n• 上車: 熊本站\n• 下車: 博多站",
-        description: "可以買個熊本熊便當在新幹線上吃。"
+        transportInfo: "九州新幹線 (單買)\n• 上車: 熊本站\n• 下車: 博多站\n• 票價: 自由席約 ¥5,230",
+        description: "回程一樣搭新幹線最省時。"
       },
       { 
         id: "d3-7", time: "19:00", title: "Shiroya (シロヤ) 博多站店", type: EventType.FOOD, location: "Hakata Station Ming", 
@@ -254,53 +254,44 @@ export const ITINERARY_DATA: DayItinerary[] = [
     items: [
       { 
         id: "d4-1", time: "09:20", title: "前往門司港", type: EventType.TRANSPORT, 
-        transportInfo: "JR 鹿兒島本線 (快速/特急 Sonic)\n• 上車: 博多站\n• 方向: 往門司港/小倉\n• 下車: 門司港站 (若搭特急需在小倉轉車)",
-        description: "週五為唐戶市場壽司日，建議早點出發。" 
+        transportInfo: "JR 特急 Sonic (建議) 或 快速列車\n• 推薦: 特急 Sonic (約50分, 自由席 ¥2,360)\n• 省錢: 快速列車 (約90分, ¥1,500)\n• 轉車: 需在小倉轉乘往門司港",
+        description: "週五為唐戶市場壽司日，建議搭特急爭取時間。" 
       },
       { 
-        id: "d4-ferry1", time: "10:40", title: "搭船前往唐戶", type: EventType.TRANSPORT, 
+        id: "d4-ferry1", time: "11:00", title: "搭船前往唐戶", type: EventType.TRANSPORT, 
         transportInfo: "關門聯絡船\n• 乘船處: 門司港棧橋 (車站步行3分)\n• 班次: 每20分鐘一班\n• 時間: 約 5 分鐘",
-        description: "橫跨關門海峽，前往下關。"
+        description: "橫跨關門海峽，從九州前往本州(下關)。"
       },
       { 
-        id: "d4-karato", time: "11:00", title: "唐戶市場 (壽司早茶)", type: EventType.FOOD, location: "Karato Market", 
-        description: "作為開胃菜，挑選幾貫高品質壽司嚐鮮即可 (留胃口給午餐)。", suggestedLeaveTime: "12:00",
+        id: "d4-karato", time: "11:15", title: "唐戶市場 (馬關街)", type: EventType.FOOD, location: "Karato Market", 
+        description: "週五-週日限定：活きいき馬関街 (壽司市集)", suggestedLeaveTime: "12:45",
         aiInsights: {
-            story: "週末限定的壽司馬關街，平日是批發市場。",
-            mustEat: ["河豚生魚片 (開胃)", "大托羅握壽司", "炸河豚"],
-            tips: ["建議停留約1小時", "不要吃太飽，午餐還有燒咖哩", "推薦買炸河豚當點心"]
+            story: "平日是批發市場，週末(含週五)化身為巨大的壽司攤販街，新鮮度與CP值爆表。",
+            mustEat: ["河豚生魚片 (下關名產)", "大托羅握壽司", "炸河豚"],
+            tips: ["建議停留60-90分鐘", "一樓買完壽司後，推薦拿到二樓座位區或戶外海邊甲板享用", "週五雖然有開，但人潮比週末少一點，是最佳造訪時機"]
         }
       },
       { 
-        id: "d4-ferry2", time: "12:00", title: "搭船返回門司港", type: EventType.TRANSPORT, 
+        id: "d4-ferry2", time: "12:45", title: "搭船返回門司港", type: EventType.TRANSPORT, 
         transportInfo: "關門聯絡船\n• 乘船處: 唐戶棧橋\n• 下船: 門司港",
-        description: "返回門司港享用午餐。"
+        description: "返回門司港繼續觀光。"
       },
       { 
-        id: "d4-lunch", time: "12:15", title: "午餐：門司港燒咖哩", type: EventType.FOOD, location: "Bear Fruits / 伽哩本舗", 
-        description: "門司港必吃美食：燒咖哩 (Baked Curry)。", suggestedLeaveTime: "13:30",
+        id: "d4-2", time: "13:00", title: "門司港懷舊區", type: EventType.SIGHTSEEING, location: "Mojiko Retro", 
+        description: "散步、拍照 (車站、舊海關、香蕉人)", suggestedLeaveTime: "14:15",
         aiInsights: {
-            story: "據說源自昭和30年代，某咖啡店將剩下的咖哩放入烤箱烤過後意外美味，現在成為門司港招牌。",
-            mustEat: ["超級燒咖哩 (Bear Fruits)", "海鮮燒咖哩 (伽哩本舗)"],
-            tips: ["Bear Fruits 是上戶彩推薦名店，通常需排隊", "伽哩本舗可欣賞港口海景"]
-        }
-      },
-      { 
-        id: "d4-2", time: "13:30", title: "門司港懷舊區", type: EventType.SIGHTSEEING, location: "Mojiko Retro", 
-        description: "散步消化，參觀紅磚建築群 (車站、舊海關、香蕉人)", suggestedLeaveTime: "14:30",
-        aiInsights: {
-            story: "大正浪漫的代表區域，舊門司海關與門司港車站皆為重要文化財。",
+            story: "大正時期的國際貿易港口，保留了大量紅磚洋房建築，充滿復古浪漫氛圍。",
             mustBuy: ["香蕉甜點 (門司港是日本香蕉叩賣發源地)"],
             tips: ["必拍景點：JR門司港車站外觀、藍翼門司吊橋 (整點會開橋)", "車站內的星巴克設計非常復古"]
         }
       },
       { 
-        id: "d4-4", time: "14:45", title: "前往小倉", type: EventType.TRANSPORT, 
-        transportInfo: "JR 鹿兒島本線\n• 上車: 門司港站\n• 方向: 往博多/久留米\n• 下車: 小倉站 (Kokura)",
-        description: "車程僅需約 15 分鐘。"
+        id: "d4-4", time: "14:30", title: "前往小倉", type: EventType.TRANSPORT, 
+        transportInfo: "JR 鹿兒島本線 (普通/快速)\n• 上車: 門司港站\n• 下車: 小倉站\n• 票價: ¥280 (刷IC卡/購票)\n• 時間: 約 14 分鐘",
+        description: "班次密集，不需劃位，就像搭捷運一樣。"
       },
       { 
-        id: "d4-5", time: "15:00", title: "小倉漫遊", type: EventType.SIGHTSEEING, location: "Kokura Castle", 
+        id: "d4-5", time: "14:45", title: "小倉漫遊", type: EventType.SIGHTSEEING, location: "Kokura Castle", 
         description: "小倉城、魚町銀天街夾娃娃", suggestedLeaveTime: "17:45",
         aiInsights: {
             story: "小倉城是宮本武藏與佐佐木小次郎決鬥傳說之地，天守閣內互動設施豐富。",
@@ -309,9 +300,9 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d4-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
-        transportInfo: "特急 Sonic (JR Pass OK)\n• 上車: 小倉站\n• 推薦: 特急 Sonic (持 Pass 可免費劃位)\n• 下車: 博多站\n• 警告: 持 Pass 不可搭此段新幹線",
-        description: "特急 Sonic 車身藍色非常帥氣，車程約 45 分鐘。注意：此路段新幹線屬 JR 西日本，JR 北九州 Pass 不適用。"
+        id: "d4-6", time: "18:00", title: "返回博多 (推薦新幹線)", type: EventType.TRANSPORT, 
+        transportInfo: "山陽新幹線 (Sanyo Shinkansen)\n• 上車: 小倉站\n• 推薦: 山陽新幹線 (自由席 ¥2,160)\n• 優勢: 僅需 15 分鐘 (特急 Sonic 需 50 分鐘)",
+        description: "沒買Pass的優勢：回程可以搭最快的山陽新幹線！"
       },
       { id: "d4-7", time: "19:00", title: "晚餐：博多拉麵街", type: EventType.FOOD, location: "Hakata Station", description: "Shin-Shin 或 一幸舍 (自由覓食)" },
       { 
