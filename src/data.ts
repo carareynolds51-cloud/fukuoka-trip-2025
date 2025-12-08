@@ -1,8 +1,4 @@
 
-
-
-
-
 import { DayItinerary, EventType, HotelInfo, FlightInfo } from './types';
 
 export const HOTEL_DATA: HotelInfo = {
@@ -97,6 +93,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { 
         id: "d2-2", time: "12:00", title: "麺屋いしヰ (Menya Ishii)", type: EventType.FOOD, location: "Hakata", 
         description: "午餐 (已訂)", suggestedLeaveTime: "13:15",
+        reservationCode: "Reserved",
         aiInsights: {
             story: "隱藏在巷弄中的沾麵名店，以濃郁的豚骨魚介湯頭聞名。",
             mustEat: ["特製沾麵", "半熟蛋"],
@@ -110,7 +107,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       },
       { 
         id: "d2-4", time: "14:00", title: "天神 PARCO (本館)", type: EventType.SHOPPING, location: "Tenjin Parco", 
-        description: "8F Chiikawa Land, Kiddy Land, 7F One Piece", suggestedLeaveTime: "15:50",
+        description: "8F Chiikawa Land, Kiddy Land, 7F One Piece", suggestedLeaveTime: "15:40",
         aiInsights: {
             story: "天神 PARCO 本館8樓是次文化的聖地，聚集了當紅角色專賣店。",
             mustBuy: ["Chiikawa 地域限定吊飾", "航海王草帽商店限定品"],
@@ -118,7 +115,18 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d2-5", time: "16:00", title: "配眼鏡 & 地下街", type: EventType.SHOPPING, location: "Tenjin Underground Shopping Center", 
+        id: "d2-donut", time: "15:45", title: "I'm donut? 天神店", type: EventType.FOOD, location: "Tenjin Minami", 
+        description: "福岡超人氣「生甜甜圈」排隊名店。", 
+        closingTime: "20:00 (售完即止)",
+        suggestedLeaveTime: "16:45",
+        aiInsights: {
+          story: "由人氣麵包店 Amam Dacotan 推出的甜甜圈專賣店，以如麻糬般軟Q的「生甜甜圈」口感風靡全日本。",
+          mustEat: ["原味 (Glazed)", "卡士達 (Custard)", "開心果"],
+          tips: ["週三下午 (15:00-16:00) 是相對人最少的好時機，預計排隊 30-45 分鐘", "若想確保買到所有口味，建議開店前(11:00)來", "店舖位於天神南，買完剛好順路逛地下街"]
+        }
+      },
+      { 
+        id: "d2-5", time: "16:45", title: "配眼鏡 & 地下街", type: EventType.SHOPPING, location: "Tenjin Underground Shopping Center", 
         description: "JINS/Zoff 配眼鏡，逛地下街", suggestedLeaveTime: "19:00",
         aiInsights: {
             story: "天神地下街設計靈感來自19世紀歐洲，全長600公尺，連接了各大百貨。",
@@ -129,6 +137,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { 
         id: "d2-6", time: "19:30", title: "One Karubi PREMIUM 中洲", type: EventType.FOOD, location: "Nakasu", 
         description: "國產牛燒肉吃到飽 (已訂)",
+        reservationCode: "Reserved",
         aiInsights: {
             story: "比一般 One Karubi 更高級的 PREMIUM 版本，提供更高品質的日本國產牛。",
             mustEat: ["上等牛五花", "厚切牛舌", "石鍋拌飯"],
@@ -151,93 +160,21 @@ export const ITINERARY_DATA: DayItinerary[] = [
     id: "day3",
     date: "12月11日",
     dayOfWeek: "週四",
-    title: "門司港 & 小倉",
-    hotelLeaveTime: "09:30",
-    items: [
-      { 
-        id: "d3-1", time: "10:00", title: "前往門司港", type: EventType.TRANSPORT, 
-        transportInfo: "JR 鹿兒島本線 (快速/區間快速)\n• 上車: 博多站 | 參考改札口資訊\n• 方向: 往門司港 (Mojiko)\n• 下車: 門司港站 (終點站)\n• 備註: 適用 JR Pass (門司港-熊本區間皆免費)",
-        description: "建議搭乘快速列車，車程約90分鐘，不用轉車。" 
-      },
-      { 
-        id: "d3-2", time: "11:30", title: "門司港懷舊區", type: EventType.SIGHTSEEING, location: "Mojiko Retro", 
-        description: "散步、拍照 (車站、舊海關)", suggestedLeaveTime: "12:30",
-        aiInsights: {
-            story: "大正時期的國際貿易港口，保留了大量紅磚洋房建築，充滿復古浪漫氛圍。",
-            mustBuy: ["香蕉甜點 (門司港是日本香蕉叩賣發源地)"],
-            tips: ["必拍景點：JR門司港車站外觀、藍翼門司吊橋 (整點會開橋)", "車站內的星巴克設計非常復古"]
-        }
-      },
-      { 
-        id: "d3-3", time: "12:30", title: "午餐：門司港燒咖哩", type: EventType.FOOD, location: "Mojiko Curry", 
-        description: "推薦：BEAR FRUITS 或 伽哩本舖", suggestedLeaveTime: "13:40",
-        aiInsights: {
-            story: "門司港名物，源自昭和30年代將剩餘咖哩放入烤箱的意外美味。",
-            mustEat: ["燒咖哩 (Yaki Curry)", "河豚料理"],
-            tips: ["BEAR FRUITS 是上戶彩推薦名店，排隊人潮較多", "喜歡吃辣建議去伽哩本舖，可選辣度"]
-        }
-      },
-      { 
-        id: "d3-4", time: "14:00", title: "前往小倉", type: EventType.TRANSPORT, 
-        transportInfo: "JR 鹿兒島本線\n• 上車: 門司港站\n• 方向: 往博多/久留米\n• 下車: 小倉站 (Kokura)",
-        description: "車程僅需約 15 分鐘。"
-      },
-      { 
-        id: "d3-5", time: "14:30", title: "小倉漫遊", type: EventType.SIGHTSEEING, location: "Kokura Castle", 
-        description: "小倉城、魚町銀天街夾娃娃", suggestedLeaveTime: "17:45",
-        aiInsights: {
-            story: "小倉城是宮本武藏與佐佐木小次郎決鬥傳說之地，天守閣內互動設施豐富。",
-            mustEat: ["揚子江肉包 (魚町銀天街)", "小倉鐵鍋餃子"],
-            tips: ["平日人潮較少，現場購票即可", "小倉城旁邊的八坂神社也很靈驗", "魚町銀天街有許多夾娃娃機店"]
-        }
-      },
-      { 
-        id: "d3-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
-        transportInfo: "特急 Sonic (JR Pass OK)\n• 上車: 小倉站\n• 推薦: 特急 Sonic (持 Pass 可免費劃位)\n• 下車: 博多站\n• 警告: 持 Pass 不可搭此段新幹線",
-        description: "特急 Sonic 車身藍色非常帥氣，車程約 45 分鐘。注意：此路段新幹線屬 JR 西日本，JR 北九州 Pass 不適用。"
-      },
-      { id: "d3-7", time: "19:00", title: "晚餐：博多拉麵街", type: EventType.FOOD, location: "Hakata Station", description: "Shin-Shin 或 一幸舍 (自由覓食)" },
-      { 
-        id: "d3-8", time: "20:30", title: "Il Forno del Mignon (需排隊)", type: EventType.FOOD, location: "Hakata Station", 
-        description: "博多站內傳奇的可頌店，香氣逼人。", 
-        closingTime: "23:00",
-        aiInsights: {
-          story: "幾乎所有福岡人都吃過的迷你可頌，排隊人潮是博多站的日常風景。",
-          mustEat: ["巧克力口味", "地瓜口味"],
-          tips: ["通常需排隊 15-20 分鐘，但隊伍前進很快", "按公克計價，推薦購買綜合口味", "當地人評價：冷掉也好吃"]
-        }
-      },
-      { 
-        id: "d3-9", time: "21:00", title: "Komeda's Coffee 博多巴士總站店", type: EventType.FOOD, location: "Hakata Bus Terminal", 
-        description: "營業至23:00，名古屋發源的舒適喫茶店。", 
-        closingTime: "23:00",
-        aiInsights: {
-          story: "著名的名古屋連鎖喫茶店，以寬敞的紅絲絨沙發聞名，招牌甜點「冰與火」是完美的宵夜選擇。",
-          mustEat: ["冰與火 (Shiro-Noir)", "味噌豬排三明治"],
-          tips: ["位於巴士總站內，位置便利", "甜點份量很大，建議分食", "紅絲絨沙發非常舒適"]
-        }
-      },
-    ]
-  },
-  {
-    id: "day4",
-    date: "12月12日",
-    dayOfWeek: "週五",
     title: "熊本 (文化與魯夫)",
     hotelLeaveTime: "09:30",
     items: [
       { 
-        id: "d4-1", time: "10:00", title: "前往熊本", type: EventType.TRANSPORT, 
+        id: "d3-1", time: "10:00", title: "前往熊本", type: EventType.TRANSPORT, 
         transportInfo: "九州新幹線 (Sakura/Tsubame)\n• 上車: 博多站 新幹線月台\n• 方向: 往鹿兒島中央\n• 下車: 熊本站 (Kumamoto)\n• 備註: 適用 JR Pass (包含瑞穗號)",
         description: "最快僅需 32 分鐘即可抵達。"
       },
       { 
-        id: "d4-t2", time: "10:45", title: "前往水前寺", type: EventType.TRANSPORT, 
+        id: "d3-t2", time: "10:45", title: "前往水前寺", type: EventType.TRANSPORT, 
         transportInfo: "熊本市電 A系統\n• 上車: 熊本站前 電車站\n• 方向: 往健軍町\n• 下車: 水前寺公園",
         description: "體驗復古的路面電車。"
       },
       { 
-        id: "d4-2", time: "10:50", title: "水前寺成趣園", type: EventType.SIGHTSEEING, location: "Suizenji Jojuen Garden", 
+        id: "d3-2", time: "10:50", title: "水前寺成趣園", type: EventType.SIGHTSEEING, location: "Suizenji Jojuen Garden", 
         description: "日式庭園、抹茶體驗", suggestedLeaveTime: "11:45",
         aiInsights: {
             story: "江戶時代建造的迴遊式庭園，模仿東海道五十三次的美景，園內有「小富士山」。",
@@ -246,12 +183,12 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-         id: "d4-t3", time: "11:45", title: "前往縣廳", type: EventType.TRANSPORT, 
+         id: "d3-t3", time: "11:45", title: "前往縣廳", type: EventType.TRANSPORT, 
          transportInfo: "步行\n• 路線: 沿著縣道28號直行\n• 時間: 約 10-15 分鐘",
          description: "散步前往熊本縣廳"
       },
       { 
-        id: "d4-3", time: "12:15", title: "熊本縣廳 (魯夫銅像)", type: EventType.SIGHTSEEING, location: "Kumamoto Prefectural Office", 
+        id: "d3-3", time: "12:15", title: "熊本縣廳 (魯夫銅像)", type: EventType.SIGHTSEEING, location: "Kumamoto Prefectural Office", 
         description: "朝聖魯夫銅像 (銀杏大道)", suggestedLeaveTime: "12:45",
         aiInsights: {
             story: "為了感謝尾田榮一郎老師對熊本地震復興的貢獻而設立，魯夫聳立在縣廳前的銀杏大道。",
@@ -259,12 +196,12 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d4-t4", time: "12:45", title: "前往市區午餐", type: EventType.TRANSPORT, 
+        id: "d3-t4", time: "12:45", title: "前往市區午餐", type: EventType.TRANSPORT, 
         transportInfo: "巴士/市電\n• 上車: 熊本縣廳前\n• 下車: 通町筋/辛島町 (市中心)",
         description: "前往最熱鬧的商店街區域。"
       },
       { 
-        id: "d4-4", time: "13:15", title: "午餐：勝烈亭 或 菅乃屋", type: EventType.FOOD, location: "Kumamoto City", 
+        id: "d3-4", time: "13:15", title: "午餐：勝烈亭 或 菅乃屋", type: EventType.FOOD, location: "Kumamoto City", 
         description: "炸豬排 或 馬肉料理 (市區)", suggestedLeaveTime: "14:45",
         aiInsights: {
             story: "熊本美食雙璧：勝烈亭是米其林推薦的鹿兒島黑豚炸豬排；菅乃屋則是頂級馬肉料理專門店。",
@@ -273,7 +210,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d4-5", time: "15:00", title: "熊本城 & 城彩苑", type: EventType.SIGHTSEEING, location: "Kumamoto Castle", 
+        id: "d3-5", time: "15:00", title: "熊本城 & 城彩苑", type: EventType.SIGHTSEEING, location: "Kumamoto Castle", 
         description: "參觀天守閣與城下町", suggestedLeaveTime: "17:30",
         aiInsights: {
             story: "日本三大名城之一，黑色外觀被稱為「武者返」，目前仍在震災修復中，但設有特殊參觀天空步道。",
@@ -282,12 +219,12 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d4-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
+        id: "d3-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
         transportInfo: "九州新幹線 (適用 JR Pass)\n• 上車: 熊本站\n• 下車: 博多站",
         description: "可以買個熊本熊便當在新幹線上吃。"
       },
       { 
-        id: "d4-7", time: "19:00", title: "Shiroya (シロヤ) 博多站店", type: EventType.FOOD, location: "Hakata Station Ming", 
+        id: "d3-7", time: "19:00", title: "Shiroya (シロヤ) 博多站店", type: EventType.FOOD, location: "Hakata Station Ming", 
         description: "北九州小倉的靈魂麵包店 (位於 Ming 商店街)。", 
         closingTime: "21:00",
         aiInsights: {
@@ -297,13 +234,104 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d4-8", time: "19:45", title: "Campbell Early (坎貝爾早安)", type: EventType.FOOD, location: "JR Hakata City 9F", 
+        id: "d3-8", time: "19:45", title: "Campbell Early (坎貝爾早安)", type: EventType.FOOD, location: "JR Hakata City 9F", 
         description: "華麗的季節水果芭菲(Sundae)專門店。", 
         closingTime: "22:00",
         aiInsights: {
           story: "博多站著名的水果芭菲專門店，使用九州當地新鮮水果，外觀華麗。",
           mustEat: ["博多Amaou草莓芭菲", "綜合水果鬆餅"],
           tips: ["位於博多站上方9樓，交通方便", "晚上適合來吃豪華甜點"]
+        }
+      },
+    ]
+  },
+  {
+    id: "day4",
+    date: "12月12日",
+    dayOfWeek: "週五",
+    title: "唐戶市場 & 門司港",
+    hotelLeaveTime: "09:00",
+    items: [
+      { 
+        id: "d4-1", time: "09:20", title: "前往門司港", type: EventType.TRANSPORT, 
+        transportInfo: "JR 鹿兒島本線 (快速/特急 Sonic)\n• 上車: 博多站\n• 方向: 往門司港/小倉\n• 下車: 門司港站 (若搭特急需在小倉轉車)",
+        description: "週五為唐戶市場壽司日，建議早點出發。" 
+      },
+      { 
+        id: "d4-ferry1", time: "10:40", title: "搭船前往唐戶", type: EventType.TRANSPORT, 
+        transportInfo: "關門聯絡船\n• 乘船處: 門司港棧橋 (車站步行3分)\n• 班次: 每20分鐘一班\n• 時間: 約 5 分鐘",
+        description: "橫跨關門海峽，前往下關。"
+      },
+      { 
+        id: "d4-karato", time: "11:00", title: "唐戶市場 (壽司早茶)", type: EventType.FOOD, location: "Karato Market", 
+        description: "作為開胃菜，挑選幾貫高品質壽司嚐鮮即可 (留胃口給午餐)。", suggestedLeaveTime: "12:00",
+        aiInsights: {
+            story: "週末限定的壽司馬關街，平日是批發市場。",
+            mustEat: ["河豚生魚片 (開胃)", "大托羅握壽司", "炸河豚"],
+            tips: ["建議停留約1小時", "不要吃太飽，午餐還有燒咖哩", "推薦買炸河豚當點心"]
+        }
+      },
+      { 
+        id: "d4-ferry2", time: "12:00", title: "搭船返回門司港", type: EventType.TRANSPORT, 
+        transportInfo: "關門聯絡船\n• 乘船處: 唐戶棧橋\n• 下船: 門司港",
+        description: "返回門司港享用午餐。"
+      },
+      { 
+        id: "d4-lunch", time: "12:15", title: "午餐：門司港燒咖哩", type: EventType.FOOD, location: "Bear Fruits / 伽哩本舗", 
+        description: "門司港必吃美食：燒咖哩 (Baked Curry)。", suggestedLeaveTime: "13:30",
+        aiInsights: {
+            story: "據說源自昭和30年代，某咖啡店將剩下的咖哩放入烤箱烤過後意外美味，現在成為門司港招牌。",
+            mustEat: ["超級燒咖哩 (Bear Fruits)", "海鮮燒咖哩 (伽哩本舗)"],
+            tips: ["Bear Fruits 是上戶彩推薦名店，通常需排隊", "伽哩本舗可欣賞港口海景"]
+        }
+      },
+      { 
+        id: "d4-2", time: "13:30", title: "門司港懷舊區", type: EventType.SIGHTSEEING, location: "Mojiko Retro", 
+        description: "散步消化，參觀紅磚建築群 (車站、舊海關、香蕉人)", suggestedLeaveTime: "14:30",
+        aiInsights: {
+            story: "大正浪漫的代表區域，舊門司海關與門司港車站皆為重要文化財。",
+            mustBuy: ["香蕉甜點 (門司港是日本香蕉叩賣發源地)"],
+            tips: ["必拍景點：JR門司港車站外觀、藍翼門司吊橋 (整點會開橋)", "車站內的星巴克設計非常復古"]
+        }
+      },
+      { 
+        id: "d4-4", time: "14:45", title: "前往小倉", type: EventType.TRANSPORT, 
+        transportInfo: "JR 鹿兒島本線\n• 上車: 門司港站\n• 方向: 往博多/久留米\n• 下車: 小倉站 (Kokura)",
+        description: "車程僅需約 15 分鐘。"
+      },
+      { 
+        id: "d4-5", time: "15:00", title: "小倉漫遊", type: EventType.SIGHTSEEING, location: "Kokura Castle", 
+        description: "小倉城、魚町銀天街夾娃娃", suggestedLeaveTime: "17:45",
+        aiInsights: {
+            story: "小倉城是宮本武藏與佐佐木小次郎決鬥傳說之地，天守閣內互動設施豐富。",
+            mustEat: ["揚子江肉包 (魚町銀天街)", "小倉鐵鍋餃子"],
+            tips: ["平日人潮較少，現場購票即可", "小倉城旁邊的八坂神社也很靈驗", "魚町銀天街有許多夾娃娃機店"]
+        }
+      },
+      { 
+        id: "d4-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
+        transportInfo: "特急 Sonic (JR Pass OK)\n• 上車: 小倉站\n• 推薦: 特急 Sonic (持 Pass 可免費劃位)\n• 下車: 博多站\n• 警告: 持 Pass 不可搭此段新幹線",
+        description: "特急 Sonic 車身藍色非常帥氣，車程約 45 分鐘。注意：此路段新幹線屬 JR 西日本，JR 北九州 Pass 不適用。"
+      },
+      { id: "d4-7", time: "19:00", title: "晚餐：博多拉麵街", type: EventType.FOOD, location: "Hakata Station", description: "Shin-Shin 或 一幸舍 (自由覓食)" },
+      { 
+        id: "d4-8", time: "20:30", title: "Il Forno del Mignon (需排隊)", type: EventType.FOOD, location: "Hakata Station", 
+        description: "博多站內傳奇的可頌店，香氣逼人。", 
+        closingTime: "23:00",
+        aiInsights: {
+          story: "幾乎所有福岡人都吃過的迷你可頌，排隊人潮是博多站的日常風景。",
+          mustEat: ["巧克力口味", "地瓜口味"],
+          tips: ["通常需排隊 15-20 分鐘，但隊伍前進很快", "按公克計價，推薦購買綜合口味", "當地人評價：冷掉也好吃"]
+        }
+      },
+      { 
+        id: "d4-9", time: "21:00", title: "Komeda's Coffee 博多巴士總站店", type: EventType.FOOD, location: "Hakata Bus Terminal", 
+        description: "營業至23:00，名古屋發源的舒適喫茶店。", 
+        closingTime: "23:00",
+        aiInsights: {
+          story: "著名的名古屋連鎖喫茶店，以寬敞的紅絲絨沙發聞名，招牌甜點「冰與火」是完美的宵夜選擇。",
+          mustEat: ["冰與火 (Shiro-Noir)", "味噌豬排三明治"],
+          tips: ["位於巴士總站內，位置便利", "甜點份量很大，建議分食", "紅絲絨沙發非常舒適"]
         }
       },
     ]
@@ -318,6 +346,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { 
         id: "d5-1", time: "11:30", title: "ひつまぶし和食備長", type: EventType.FOOD, location: "Nakasu Kawabata", 
         description: "名古屋名物鰻魚飯三吃 (已訂)", suggestedLeaveTime: "12:50",
+        reservationCode: "Reserved",
         aiInsights: {
             story: "源自名古屋的名店，主打關西風炭火直烤鰻魚，外皮酥脆肉質軟嫩。",
             mustEat: ["鰻魚飯三吃 (Hitsumabushi)"],
@@ -344,11 +373,22 @@ export const ITINERARY_DATA: DayItinerary[] = [
       },
       { 
         id: "d5-4", time: "15:45", title: "天神大名潮牌巡禮", type: EventType.SHOPPING, location: "Daimyo, Chuo Ward", 
-        description: "Onitsuka Tiger, The North Face, On (Billy's/Atmos)", suggestedLeaveTime: "19:00",
+        description: "Onitsuka Tiger, The North Face, On (Billy's/Atmos)", suggestedLeaveTime: "17:30",
         aiInsights: {
             story: "大名區 (Daimyo) 是福岡的裏原宿，巷弄內充滿古著屋、潮牌店和個性咖啡廳。",
             mustBuy: ["Onitsuka Tiger 日本製系列 (Nippon Made)", "The North Face 紫標 (日本限定)"],
             tips: ["這區的小巷子很容易迷路，建議善用 Google Maps", "週末下午人潮最多，試穿鞋子可能要排隊"]
+        }
+      },
+      { 
+        id: "d5-spoon", time: "17:45", title: "THE SPOON (ザ・スプーン)", type: EventType.FOOD, location: "AER Nishinakasu 1F", 
+        description: "使用九州頂級食材的「大人系聖代」專門店。", 
+        closingTime: "24:00",
+        suggestedLeaveTime: "18:45",
+        aiInsights: {
+          story: "位於西中洲那珂川畔，環境優雅的夜間聖代專門店，主打使用九州產水果與茶葉的奢華聖代。",
+          mustEat: ["季節限定水果聖代", "八女茶聖代"],
+          tips: ["位於 AER 西中洲大樓 1F，外觀低調", "距離天神步行約10分鐘，吃完晚餐前去剛剛好"]
         }
       },
       { 
