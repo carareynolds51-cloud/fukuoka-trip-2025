@@ -219,12 +219,21 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d3-6", time: "18:00", title: "返回博多", type: EventType.TRANSPORT, 
-        transportInfo: "九州新幹線 (單買)\n• 上車: 熊本站\n• 下車: 博多站\n• 票價: 自由席約 ¥5,230",
-        description: "回程一樣搭新幹線最省時。"
+        id: "d3-chiikawa", time: "17:45", title: "Chiikawa Pop-up Store", type: EventType.SHOPPING, location: "AMU PLAZA Kumamoto 5F", 
+        description: "就在熊本車站旁！前往 AMU PLAZA 5樓朝聖 Chiikawa。", suggestedLeaveTime: "18:45",
+        aiInsights: {
+            story: "Chiikawa (吉伊卡哇) 的人氣席捲全日本，這是粉絲絕對不能錯過的朝聖點。",
+            mustBuy: ["展場限定紀念品", "角色玩偶"],
+            tips: ["位於熊本站直結的 AMU PLAZA 5樓", "請留意是否有入場整理券發放"]
+        }
       },
       { 
-        id: "d3-7", time: "19:00", title: "Shiroya (シロヤ) 博多站店", type: EventType.FOOD, location: "Hakata Station Ming", 
+        id: "d3-6", time: "19:00", title: "返回博多", type: EventType.TRANSPORT, 
+        transportInfo: "九州新幹線 (單買)\n• 上車: 熊本站\n• 下車: 博多站\n• 票價: 自由席約 ¥5,230",
+        description: "逛完街後搭乘新幹線返回博多 (車程約40-50分)。"
+      },
+      { 
+        id: "d3-7", time: "19:50", title: "Shiroya (シロヤ) 博多站店", type: EventType.FOOD, location: "Hakata Station Ming", 
         description: "北九州小倉的靈魂麵包店 (位於 Ming 商店街)。", 
         closingTime: "21:00",
         aiInsights: {
@@ -234,7 +243,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         }
       },
       { 
-        id: "d3-8", time: "19:45", title: "Campbell Early (坎貝爾早安)", type: EventType.FOOD, location: "JR Hakata City 9F", 
+        id: "d3-8", time: "20:30", title: "Campbell Early (坎貝爾早安)", type: EventType.FOOD, location: "JR Hakata City 9F", 
         description: "華麗的季節水果芭菲(Sundae)專門店。", 
         closingTime: "22:00",
         aiInsights: {
