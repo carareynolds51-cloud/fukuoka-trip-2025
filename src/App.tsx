@@ -345,58 +345,48 @@ const ToolsView = ({
                 </div>
             </div>
 
-            {/* Rail Pass Recommendation Card */}
+            {/* Transport Cost Guide (No Pass) */}
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-sm border border-indigo-100 p-5">
                 <h3 className="text-lg font-bold text-indigo-900 flex items-center gap-2 mb-3">
-                    <Ticket className="text-indigo-600" size={20} /> JR Pass 攻略
+                    <Ticket className="text-indigo-600" size={20} /> 交通購票攻略 (單買)
                 </h3>
                 <div className="bg-white/60 rounded-lg p-3 mb-3 border border-indigo-100">
-                    <div className="flex justify-between items-center text-sm mb-1">
-                        <span className="text-stone-600">單買車票預估</span>
-                        <span className="text-stone-500 line-through">~¥15,000</span>
+                    <div className="flex justify-between items-center text-sm mb-2">
+                        <span className="text-stone-600">Day 3 熊本來回</span>
+                        <span className="font-bold text-stone-800">¥10,460</span>
                     </div>
                     <div className="flex justify-between items-center text-sm mb-2">
-                        <span className="font-bold text-indigo-800">JR 北九州周遊券 (3日)</span>
-                        <span className="font-bold text-indigo-600">¥14,000</span>
+                        <span className="text-stone-600">Day 4 門司/小倉來回</span>
+                        <span className="font-bold text-stone-800">~¥4,800</span>
                     </div>
-                    <div className="text-xs text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded inline-block border border-emerald-100">
-                        省下約 ¥1,000 + 免費劃位指定席
+                    <div className="text-xs text-indigo-600 font-bold bg-indigo-50 px-2 py-1 rounded inline-block border border-indigo-100">
+                        預估總交通費: 約 ¥15,300 (不含市區)
                     </div>
                 </div>
                 
                 <div className="space-y-2">
-                    <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-wider">重要注意事項</h4>
+                    <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-wider">單買票的好處</h4>
                     <div className="flex gap-3 text-xs">
-                        <div className="flex-1 bg-white p-2 rounded border border-red-100">
-                            <span className="block font-bold text-red-600 mb-1">Pass 適用範圍</span>
+                        <div className="flex-1 bg-white p-2 rounded border border-blue-100">
+                            <span className="block font-bold text-blue-600 mb-1">小倉回程搭新幹線</span>
                             <p className="text-stone-600 leading-tight mb-1">
-                                <span className="font-bold text-stone-800">• 門司港 ～ 熊本</span><br/>
-                                <span className="text-[10px]">(包含鹿兒島本線)</span>
+                                因為沒買 Pass，回程可以搭乘<span className="font-bold">山陽新幹線</span>。
                             </p>
-                            <p className="text-stone-600 leading-tight mb-1">
-                                <span className="font-bold text-stone-800">• 快速/區間快速</span><br/>
-                                <span className="text-[10px]">(皆可免費搭乘)</span>
-                            </p>
-                            <p className="text-red-500 font-bold leading-tight border-t border-red-100 pt-1 mt-1">
-                                熊本以南 (如八代)<br/>需補票，不可用
+                             <p className="text-stone-600 leading-tight">
+                                <span className="font-bold text-stone-800">15分鐘</span> 抵達博多<br/>
+                                <span className="text-[10px]">(Pass只能搭Sonic, 要50分)</span>
                             </p>
                         </div>
                         <div className="flex-1 bg-white p-2 rounded border border-emerald-100">
-                             <span className="block font-bold text-emerald-600 mb-1">Day 3 熊本新幹線</span>
-                             <p className="text-stone-600 leading-tight">
-                                <span className="font-bold">可以搭</span> 九州新幹線<br/>
-                                (瑞穗/櫻花/燕子號皆可)
+                             <span className="block font-bold text-emerald-600 mb-1">購票方式</span>
+                             <p className="text-stone-600 leading-tight mb-1">
+                                <span className="font-bold">自動售票機</span><br/>
+                                直接購買當日票即可
                              </p>
-                             <div className="mt-2 pt-1 border-t border-emerald-100">
-                                 <span className="block font-bold text-red-500 mb-0.5">Day 4 小倉新幹線</span>
-                                 <p className="text-stone-600 leading-tight text-[10px]">
-                                    博多-小倉的新幹線屬JR西日本，<span className="font-bold text-red-500">不可搭乘</span>。請改搭特急 Sonic。
-                                 </p>
-                             </div>
+                             <p className="text-stone-500 leading-tight text-[10px]">
+                                *小倉-博多新幹線屬於JR西日本，請找藍色售票機
+                             </p>
                         </div>
-                    </div>
-                    <div className="mt-2 text-[10px] text-stone-500 bg-white/40 p-2 rounded">
-                        *建議事先在 Klook/KKday 購買電子兌換券，抵達博多站時憑護照兌換並劃位。
                     </div>
                 </div>
             </div>
